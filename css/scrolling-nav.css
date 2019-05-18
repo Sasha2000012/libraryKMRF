@@ -1,0 +1,81 @@
+/*!
+ * Start Bootstrap - Scrolling Nav (https://startbootstrap.com/template-overviews/scrolling-nav)
+ * Copyright 2013-2019 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-scrolling-nav/blob/master/LICENSE)
+ */
+header {
+  padding: 156px 0 100px;
+}
+
+section {
+  padding: 100px 0;
+}
+.left{
+	padding-left: 100px;
+}
+.main-row-padding-leftrightt{
+	padding-left: 30px;
+	padding-right: 30px;
+	
+}
+.main-row-padding{
+	padding-bottom: 30px;
+}
+.marginndown{
+	margin-bottom: 150px;
+	
+}
+.marginndownwriter{
+	margin-bottom: 100px;
+	
+}
+.marginntop{
+	margin-top:150px;
+	
+}
+.colortext{
+	color: white;
+}
+
+.holder{
+position:relative;
+width:300px;
+height:300px;
+}
+.block{
+z-index: auto;
+display:block;
+position:relative;
+
+background: #1E90FF;
+display:none;
+}
+.holder:hover .block{
+display:block;
+}
+.textss{
+	text:re
+}
+.shrifttext{
+	font-family:'Times New Roman', Times, serif;
+	font-weight:bold;
+	font-size:30px;
+}
+.colortextbook
+{
+	color:  #0000CD;
+}
+.opusbookShrift{
+	font-family:'Times New Roman', Times, serif;
+	font-size:20px;
+	
+}
+
+ul{
+	font-family:'Times New Roman', Times, serif;
+	font-size:20px;
+	list-style: none;
+	padding-left: 0px;
+	
+	
+}
