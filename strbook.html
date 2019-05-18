@@ -24,20 +24,17 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="mainNav">
     <div class="container">
-      <a class="navbar-brand js-scroll-trigger" href="#page-top">Library KMRF</a>
+      <a class="navbar-brand js-scroll-trigger" href="main.html">Library KMRF</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
+        <ul class="navbar-nav ml-auto">          
             <li class="nav-item">
-                <a class="nav-link js-scroll-trigger" href="#rent">Оренда</a>
-              </li>
-            <li class="nav-item">
-                <a class="nav-link js-scroll-trigger" href="#avtor">Автори</a>
+                <a class="nav-link js-scroll-trigger" href="WriterSTR.html">Автори</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="Startpage.html">Жанри</a>
+                <a class="nav-link " href="Ganre.html">Жанри</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link js-scroll-trigger" href="main.html">Каталог</a>
@@ -65,7 +62,7 @@
 				<li>Автор: <a href="StrAutor.html">Анна Тод</a></li>
 				<li>Рік: 2014</li>
 				<li>Видавництво: Эксмо</li>
-				<li>Жанр: Зарубежные любовные романы, Современные любовные романы</li>
+				<li>Жанр: Роман</li>
 				<br>
 				<li><a data-toggle="modal" data-target="#zakazbook" href="">Замовити книгу</a></li>
 			</ul>
@@ -89,20 +86,24 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="deleteChatLabel">Are you sure to delete this chat?</h5>
+              <h5 class="modal-title text-primary" id="deleteChatLabel"><strong>Ви хочете замовити книгу "После"?</strong></h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body popup-input-padding">
               <form>
-                <div class="form-group">
-                  <input type="text" class="form-control" id="new-member-name" placeholder="Your Key">
+                  <input type="text" class="form-control" id="name" placeholder=" Введіть ПІБ">
+                <div class="form-group">      
+                  <label for = "inputstudnumber" class =  "text-primary"><strong>КВ №</strong></label>
+                  <input type="number" class=" form-control" id="stud" placeholder=" Введіть номер студентського">
+                
                 </div>
               </form>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-outline-primary btn-block regButton">Delete</button>
+              <button type="button" class="btn btn-outline-primary btn-block regButton">Замовити</button>
+              <button type="button" class="btn btn-outline-primary btn-block regButton">Вийти</button>
             </div>
           </div>
         </div>

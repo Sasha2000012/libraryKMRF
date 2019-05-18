@@ -10,6 +10,9 @@ header {
 section {
   padding: 100px 0;
 }
+.bottom{
+	padding-bottom: 50px;
+}
 .left{
 	padding-left: 100px;
 }
@@ -53,9 +56,7 @@ display:none;
 .holder:hover .block{
 display:block;
 }
-.textss{
-	text:re
-}
+
 .shrifttext{
 	font-family:'Times New Roman', Times, serif;
 	font-weight:bold;
