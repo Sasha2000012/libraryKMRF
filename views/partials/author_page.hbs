@@ -1,0 +1,24 @@
+﻿
+<section id="book">
+	<div class="row  left bottom">                  
+        <div class="col-lg-3 col-md-4 col-sm-6">
+            <a href="/authors" >Назад</a>
+			<img class=" img-fluid" src="../picture/author/{{author._id}}.jpg">
+        </div>
+        <div class="col-lg-9 col-md-8 col-sm-6">
+			<h1 class = "shrifttext colortextbook">
+				<p>{{author.name}}<p>
+			</h1>
+			<ul class = "colortextbook">
+				<li>Дата народження: {{author.birthday}}</li>
+				<li>Країна: {{author.country}}</li>
+			</ul>
+		</div>
+	</div>
+	<div class="row">
+        <div class="col-lg-11 mx-auto  colortextbook ">
+            <h2 class = "shrifttext">Біографія {{author.name}} </h2>
+            <p class="opusbookShrift">{{author.description}}</p>
+        </div>
+      </div>
+  </section>

@@ -1,0 +1,14 @@
+﻿
+<section id="Writer">
+	<div class="col-10 main-row-padding-leftrightt shrifttext colortextbook">
+		<p>Топ авторів</p>                       
+	</div>
+    <div class=" row main-row-padding-leftrightt colortextbook">
+        {{#each authors}}
+            <div class="col-lg-2 col-md-4 col-sm-6 marginndownwriter holder">
+                <a href="/author/{{this._id}}"><img class=" img-fluid" src="picture/author/{{this._id}}.jpg"></a>
+                <a class = " opusbookShrift">{{this.name}}</a>
+            </div>
+        {{/each}}
+    </div>
+</section>

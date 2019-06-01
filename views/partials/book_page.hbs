@@ -1,0 +1,58 @@
+﻿
+<section id="book">
+	<div class="row  main-row-padding-leftrightt">                  
+        <div class="col-lg-3 col-md-4 col-sm-6">
+            <a href="/" >Назад</a>
+			<img class=" img-fluid" src="../picture/book/{{book._id}}.jpg">
+        </div>
+        <div class="col-lg-9 col-md-8 col-sm-6">
+			<h1 class = "shrifttext colortextbook">
+			<span>{{book.title}}</span>
+				<p>{{book.authorID.name}}<p>
+			</h1>
+			<ul class = "colortextbook">
+				<li>Назва: {{book.title}}</li>
+				<li>Автор: <a href="/author/{{book.authorID._id}}">{{book.authorID.name}}</a></li>
+				<li>Рік: {{book.year}}</li>
+				<li>Видавництво: {{book.publish}}</li>
+				<li>Жанр: {{book.genre}}</li>
+				<br>
+				<li><a data-toggle="modal" data-target="#zakazbook" href="">Замовити книгу</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="row">
+        <div class="col-lg-11 mx-auto  colortextbook ">
+            <h2 class = "shrifttext">О книзі «{{book.title}}» </h2>
+            <p class="opusbookShrift">{{book.description}}</p>
+        </div>
+    </div>
+      
+</section>
+  <!--Popup-->
+      <div class="modal fade" id="zakazbook" tabindex="-1" role="dialog" aria-labelledby="deleteChatLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title text-primary" id="deleteChatLabel"><strong>Ви хочете замовити книгу "После"?</strong></h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body popup-input-padding">
+              <form>
+                  <input type="text" class="form-control" id="name" placeholder=" Введіть ПІБ">
+                <div class="form-group">      
+                  <label for = "inputstudnumber" class =  "text-primary"><strong>КВ №</strong></label>
+                  <input type="number" class=" form-control" id="stud" placeholder=" Введіть номер студентського">
+                
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline-primary btn-block regButton">Замовити</button>
+              <button type="button" class="btn btn-outline-primary btn-block regButton">Вийти</button>
+            </div>
+          </div>
+        </div>
+      </div>

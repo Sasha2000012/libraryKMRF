@@ -1,8 +1,8 @@
 {
-    "title": "Scrolling Nav",
-    "name": "startbootstrap-scrolling-nav",
-    "version": "4.1.2",
-    "description": "A smooth scrolling navigation HTML template built with Bootstrap",
+    "title": "Lybrary",
+    "name": "college_library",
+    "version": "1.0.0",
+    "description": "Best library",
     "keywords": [
         "css",
         "sass",
@@ -11,27 +11,22 @@
         "theme",
         "template"
     ],
-    "homepage": "https://startbootstrap.com/template-overviews/scrolling-nav",
-    "bugs": {
-        "url": "https://github.com/BlackrockDigital/startbootstrap-scrolling-nav/issues",
-        "email": "feedback@startbootstrap.com"
-    },
-    "license": "MIT",
-    "author": "Start Bootstrap",
-    "contributors": [
-        "David Miller (http://davidmiller.io/)"
-    ],
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/BlackrockDigital/startbootstrap-scrolling-nav.git"
-    },
     "dependencies": {
-        "bootstrap": "4.2.1",
-        "jquery": "3.3.1",
-        "jquery.easing": "^1.4.1"
+        "body-parser": "^1.18.3",
+        "cookie-parser": "^1.4.3",
+        "debug": "^4.1.1",
+        "express": "^4.16.4",
+        "express-handlebars": "^3.0.0",
+        "hbs": "^4.0.1",
+        "mongodb": "^3.1.10",
+        "mongoose": "^5.4.3",
+        "nodemon": "^1.18.9"
     },
     "devDependencies": {
         "browser-sync": "2.26.3",
         "gulp": "4.0.0"
+    },
+    "scripts": {
+        "start": "nodemon ./bin/www"
     }
 }
