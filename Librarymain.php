@@ -9,8 +9,7 @@
   <meta name="author" content="">
 
   <title>Library KMRF</title>
-  <!-- Slider -->
-  <link href="css/slider.css" rel="stylesheet" />
+
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -24,67 +23,31 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="mainNav">
     <div class="container">
-      <a class="navbar-brand js-scroll-trigger" href="main.html">Library KMRF</a>
+      <a class="navbar-brand " href="main.html">Library KMRF</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">            
+        <ul class="navbar-nav ml-auto">          
             <li class="nav-item">
                 <a class="nav-link js-scroll-trigger" href="WriterSTR.html">Автори</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="Startpage.html">Жанри</a>
+                <a class="nav-link " href="Ganre.html">Жанри</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link js-scroll-trigger" href="catalog.html">Каталог</a>
               </li>
           <li class="nav-item">
-            <a class="nav-link" href="aboutLibrary.html">Про бібліотеку</a>
+            <a class="nav-link js-scroll-trigger" href="aboutLibrary.html">Про бібліотеку</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
-  <section id="main" class="minHeigh">
-	  
-		<div class=" col-lg-12 mx-auto colortextbook main-row-padding-leftrightt">
-		<h2>Жанри</h2>
-		</div>
-		<div class="row left">
-             <div class="col-lg-2 col-md-6 col-sm-12  colortextbook ">
-			 <ul class = "colortextbook">
-				<li><a href="Steganre.html">Бизнес-книги</a></li>
-				<li><a href="Steganre.html">Боевики</a></li>
-				<li><a href="Steganre.html">Детективы</a></li>
-			</ul>
-			 </div>
-			 <div class="col-lg-2 col-md-6 col-sm-12  colortextbook ">
-			 <ul class = "colortextbook">
-				<li><a href="Steganre.html">Детские книги</a></li>
-				<li><a href="Steganre.html">Дом, Семья</a></li>
-				<li><a href="Steganre.html">Искусство</a></li>
-			</ul>
-			 </div> 
-			<div class="col-lg-2 col-md-6 col-sm-12  colortextbook ">
-			<ul class = "colortextbook">
-				<li><a href="Steganre.html">Классика</a></li>
-				<li><a href="Steganre.html">Компьютеры</a></li>
-				<li><a href="Steganre.html">Кулинария</a></li>
-			</ul>
-			 </div>	
-			<div class="col-lg-2 col-md-6 col-sm-12  colortextbook ">
-			 <ul class = "colortextbook">
-				<li><a href="Steganre.html">Любовные романы</a></li>
-				<li><a href="Steganre.html">Наука</a></li>
-				<li><a href="Steganre.html">Образование</a></li>
-			</ul>
-			 </div>				 
-      </div>
-                               
-</section>
 
 
+    
 
   <!-- Footer -->
   <footer class="py-3 bg-primary">
