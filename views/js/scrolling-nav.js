@@ -20,10 +20,26 @@
     $('.navbar-collapse').collapse('hide');
   });
 
-  // Activate scrollspy to add active class to navbar items on scroll
-  $('body').scrollspy({
-    target: '#mainNav',
-    offset: 56
-  });
+  $("#make-order-button").click(function(e) {
+    console.log("order button");
+    $.ajax({
+      url: "/order",
+      type: "POST",
+      data: {
+        number: $("#stud").val(),
+        bookID: $("#book-id").val(),
+        title: $("#book-title").text()
+      },
+      success: function(result) {
+        $("#zakazbook").modal("hide");
+        if (result) {
+          $("#zakazOK").modal("show");
+        } else {
+          $("#zakazErr").modal("show");
+        }
+      }
+    })
+  })
 
+  
 })(jQuery); // End of use strict

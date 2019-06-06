@@ -7,7 +7,8 @@
         </div>
         <div class="col-lg-9 col-md-8 col-sm-6">
 			<h1 class = "shrifttext colortextbook">
-			<span>{{book.title}}</span>
+      <input type="hidden" id="book-id" value="{{book._id}}">
+			<span id="book-title">{{book.title}}</span>
 				<p>{{book.authorID.name}}<p>
 			</h1>
 			<ul class = "colortextbook">
@@ -17,7 +18,11 @@
 				<li>Видавництво: {{book.publish}}</li>
 				<li>Жанр: {{book.genre}}</li>
 				<br>
-				<li><a data-toggle="modal" data-target="#zakazbook" href="">Замовити книгу</a></li>
+        {{#if book.notStock}}
+          <h3>Книги нет в наличии</h3>
+        {{else}}
+          <li><a data-toggle="modal" data-target="#zakazbook" href="">Замовити книгу</a></li>
+        {{/if}}
 			</ul>
 		</div>
 	</div>
@@ -41,7 +46,6 @@
             </div>
             <div class="modal-body popup-input-padding">
               <form>
-                  <input type="text" class="form-control" id="name" placeholder=" Введіть ПІБ">
                 <div class="form-group">      
                   <label for = "inputstudnumber" class =  "text-primary"><strong>КВ №</strong></label>
                   <input type="number" class=" form-control" id="stud" placeholder=" Введіть номер студентського">
@@ -50,8 +54,56 @@
               </form>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-outline-primary btn-block regButton">Замовити</button>
-              <button type="button" class="btn btn-outline-primary btn-block regButton">Вийти</button>
+              <button type="button" id="make-order-button" class="btn btn-outline-primary btn-block regButton">Замовити</button>
+              <button type="button" data-dismiss="modal" class="btn btn-outline-primary btn-block regButton">Вийти</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <!--OK-->
+      <div class="modal fade" id="zakazOK" tabindex="-1" role="dialog" aria-labelledby="deleteChatLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title text-primary" id="deleteChatLabel"><strong>Книга заказана</strong></h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body popup-input-padding">
+              <form>
+                <div class="form-group">      
+                  <p>Спасибо, что заказали книгу «{{book.title}}»</p>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" data-dismiss="modal" class="btn btn-outline-primary btn-block regButton">Вийти</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <!--Error-->
+      <div class="modal fade" id="zakazErr" tabindex="-1" role="dialog" aria-labelledby="deleteChatLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title text-primary" id="deleteChatLabel"><strong>Ошибка при заказе</strong></h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body popup-input-padding">
+              <form>
+                <div class="form-group">      
+                  <p>Проверьте правильность номера вашего студенческого</p>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" data-dismiss="modal" class="btn btn-outline-primary btn-block regButton">Вийти</button>
             </div>
           </div>
         </div>

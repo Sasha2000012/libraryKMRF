@@ -42,6 +42,9 @@
                         <a href="/book/{{this._id}}"><img class="img-fluid"  src="picture/book/{{this._id}}.jpg" ></a>
                         <div class="block text-center">
                             <a class="text-white ">{{this.title}}</a>
+                            {{#if this.notStock}}
+                                <a class="text-white "> (нет в наличии)</a>
+                            {{/if}}
                         </div>
                       </div>
                     {{/each}}
