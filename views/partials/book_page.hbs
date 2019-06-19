@@ -6,6 +6,7 @@
 			<img class=" img-fluid" src="../picture/book/{{book._id}}.jpg">
         </div>
         <div class="col-lg-9 col-md-8 col-sm-6">
+          <br>
 			<h1 class = "shrifttext colortextbook">
       <input type="hidden" id="book-id" value="{{book._id}}">
 			<span id="book-title">{{book.title}}</span>
@@ -13,7 +14,7 @@
 			</h1>
 			<ul class = "colortextbook">
 				<li>Назва: {{book.title}}</li>
-				<li>Автор: <a href="/author/{{book.authorID._id}}">{{book.authorID.name}}</a></li>
+				<li>Автор: <a href="/author/{{book.authorID._id}}" class="sulka">{{book.authorID.name}}</a></li>
 				<li>Рік: {{book.year}}</li>
 				<li>Видавництво: {{book.publish}}</li>
 				<li>Жанр: {{book.genre}}</li>
@@ -21,13 +22,13 @@
         {{#if book.notStock}}
           <h3>Книги нет в наличии</h3>
         {{else}}
-          <li><a data-toggle="modal" data-target="#zakazbook" href="">Замовити книгу</a></li>
+          <li><a data-toggle="modal" data-target="#zakazbook" href=""class="sulka">Замовити книгу</a></li>
         {{/if}}
 			</ul>
 		</div>
 	</div>
-	<div class="row">
-        <div class="col-lg-11 mx-auto  colortextbook ">
+	<div class="row main-row-padding-leftrightt">
+        <div class="col-12 colortextbook ">
             <h2 class = "shrifttext">О книзі «{{book.title}}» </h2>
             <p class="opusbookShrift">{{book.description}}</p>
         </div>
@@ -48,14 +49,19 @@
               <form>
                 <div class="form-group">      
                   <label for = "inputstudnumber" class =  "text-primary"><strong>КВ №</strong></label>
-                  <input type="number" class=" form-control" id="stud" placeholder=" Введіть номер студентського">
+                  <input type="number" class=" form-control" id="stud"   placeholder=" Введіть номер студентського">
                 
                 </div>
               </form>
             </div>
             <div class="modal-footer">
-              <button type="button" id="make-order-button" class="btn btn-outline-primary btn-block regButton">Замовити</button>
-              <button type="button" data-dismiss="modal" class="btn btn-outline-primary btn-block regButton">Вийти</button>
+              <div class="col-6 padding-block">
+                  <button type="button" id="make-order-button" class="btn btn-outline-primary btn-block regButton">Замовити</button>
+              </div>
+              <div class="col-6 padding-block">
+                <button type="button" data-dismiss="modal" class="btn btn-outline-primary btn-block  regButton">Вийти</button>
+              </div>
+              
             </div>
           </div>
         </div>
@@ -90,7 +96,7 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title text-primary" id="deleteChatLabel"><strong>Ошибка при заказе</strong></h5>
+              <h5 class="modal-title text-primary" id="deleteChatLabel"><strong>Помилка при замовлені</strong></h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -98,7 +104,7 @@
             <div class="modal-body popup-input-padding">
               <form>
                 <div class="form-group">      
-                  <p>Проверьте правильность номера вашего студенческого</p>
+                  <p>Перевірте написання вашого номеру студентського квиткаі</p>
                 </div>
               </form>
             </div>

@@ -6,7 +6,12 @@
 header {
   padding: 156px 0 100px;
 }
+.img-ship{
+	width: 70px; 
+	height: 50px;
+	padding-right: 20px;
 
+}
 section {
   padding: 100px 0;
 }
@@ -37,13 +42,17 @@ section {
 }
 
 .holder{
-position:relative;
-
+	position:relative;   
+	
 }
 .block{
-
-position: relative;
+position:absolute;
+    left:6%;
+    bottom:0;
+    right:6%;
+    top:90;
 background: #1E90FF;
+
 display:none;
 }
 .holder:hover .block{
@@ -75,4 +84,18 @@ ul{
 }
 .minHeigh{
 	min-height: 80%;
+}
+.sulka{
+	text-decoration: underline;
+}
+.regButton{
+	margin-top: 0px;
+	
+}
+.padding-block{
+	padding: 0px;
+}
+.libcolor{
+	font-size:20px;
+	color: #ffff00;
 }
