@@ -58,13 +58,16 @@ app.get('/book/:id', function(req, res) {
 
 app.get("/author/:id", function(req, res) {
   Content.Author.findById(req.params.id, function(err, result) {
-    if (err) {
-      console.log(err);
-    } else if (result) {
-      res.render("partials/author_page.hbs", {
-        author: result
-      })
-    }
+    Content.Book.find({authorID: result._id}, function(err, books) {
+      if (err) {
+        console.log(err);
+      } else if (result) {
+        res.render("partials/author_page.hbs", {
+          author: result,
+          books: books
+        })
+      }
+    })
   })
 });
 
@@ -73,6 +76,72 @@ app.get("/catalog", function(req, res) {
     if (err) {
       console.log(err);
     } else {
+      res.render("partials/catalog.hbs", {
+        books: result
+      })
+    }
+  })
+})
+
+app.get("/catalog-title-up", function(req, res) {
+  Content.Book.find({}, function(err, result) {
+    if (err) {
+      console.log(err);
+    } else {
+      result.sort(function(a, b) {
+        let nameA = a.title.toLowerCase();
+        let nameB = b.title.toLowerCase();
+
+        if (nameA < nameB) {
+          return -1;
+        } else if (nameA > nameB) {
+          return 1;
+        } else {
+          return 0;
+        }
+      })
+      res.render("partials/catalog.hbs", {
+        books: result
+      })
+    }
+  })
+})
+
+app.get("/catalog-title-down", function(req, res) {
+  Content.Book.find({}, function(err, result) {
+    if (err) {
+      console.log(err);
+    } else {
+      result.sort(function(a, b) {
+        let nameA = a.title.toLowerCase();
+        let nameB = b.title.toLowerCase();
+        
+        if (nameA > nameB) {
+          return -1;
+        } else if (nameA < nameB) {
+          return 1;
+        } else {
+          return 0;
+        }
+      })
+      res.render("partials/catalog.hbs", {
+        books: result
+      })
+    }
+  })
+})
+
+app.get("/find", function(req, res) {
+  
+  Content.Book.find({}, function(err, result) {
+    if (err) {
+      console.log(err);
+    } else {
+      let reg = new RegExp(req.query.text, "i");
+      console.log(result.filter(book => book.title.match(reg)));
+      result = result.filter(function(book) {
+        return book.title.match(reg);
+      });
       res.render("partials/catalog.hbs", {
         books: result
       })
