@@ -41,6 +41,53 @@
     })
   })
 
+  $("#auth-button").click(function(e) {
+    $.ajax({
+      url: "/order",
+      type: "POST",
+      data: {
+        pib: $("#PIB-auth").val(),
+        password: $("#parol-auth").val()
+      },
+      success: function(result) {
+        if (result) {
+          $("#zakazbook").modal("hide");
+          $("#zakazOK").modal("show");
+        } else {
+          $("#zakazErr").modal("show");
+        }
+      }
+    })
+  })
+
+  $("#reg-button").click(function(e) {
+    $("#zakazbook").modal("hide");
+    $("#reg-zakaz-book").modal("show");
+  })
+
+  $("#reg-confirm-button").click(function(e) {
+    $.ajax({
+      url: "/reg",
+      type: "POST",
+      data: {
+        fio: $("#PIB").val(),
+        number: $("#Number-stud").val(),
+        email: $("#Email").val(),
+        phone: $("#Number-phone").val(),
+        group: $("#Group").val(),
+        password: $("#parol").val()
+      },
+      success: function(result) {
+        if (result) {
+          $("#reg-zakaz-book").modal("hide");
+          $("#regOK").modal("show");
+        } else {
+          $("#regErr").modal("show");
+        }
+      }
+    })
+  })
+
   $("#catalog-select-sort").change(function()
   {
      

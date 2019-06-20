@@ -35,7 +35,7 @@
     </div>
       
 </section>
-  <!--Popup-->
+  <!--Auth-->
       <div class="modal fade" id="zakazbook" tabindex="-1" role="dialog" aria-labelledby="deleteChatLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
@@ -48,24 +48,56 @@
             <div class="modal-body popup-input-padding">
               <form>
                 <div class="form-group">      
-                  <label for = "inputstudnumber" class =  "text-primary"><strong>КВ №</strong></label>
-                  <input type="number" class=" form-control" id="stud"   placeholder=" Введіть номер студентського">
-                
+                  <input type="text" class="form-control" name="PIB" id="PIB-auth" value="ПІБ">
+                     <input type="text" class="form-control" name="parol" id="parol-auth" value="Пароль">
                 </div>
               </form>
             </div>
             <div class="modal-footer">
               <div class="col-6 padding-block">
-                  <button type="button" id="make-order-button" class="btn btn-outline-primary btn-block regButton">Замовити</button>
+                 <button type="submit" class="btn btn-primary" id="reg-button">Зареєструватися</button> 
               </div>
               <div class="col-6 padding-block">
-                <button type="button" data-dismiss="modal" class="btn btn-outline-primary btn-block  regButton">Вийти</button>
+                <button type="submit" class="btn btn-primary" id="auth-button">Вхід</button> 
               </div>
               
             </div>
           </div>
         </div>
       </div>
+
+        <!--Registration-->
+      <div class="modal fade" id="reg-zakaz-book" tabindex="-1" role="dialog" aria-labelledby="deleteChatLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title text-primary" id="deleteChatLabel"><strong>Реєстрація</strong></h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body popup-input-padding">
+              <form>
+                <div class="form-group">      
+                  <input type="text" class="form-control" name="PIB" id="PIB" value="ПІБ">
+                    <input type="text" class="form-control" name="Number-stud" id="Number-stud" value="">
+                    <input type="text" class="form-control" name="Group" id="Group" value="Група">
+                    <input type="text" class="form-control" name="Email" id="Email" value="Електрона адреса">
+                     <input type="text" class="form-control" name="number-phone" id="Number-phone" value="">
+                    <input type="text" class="form-control" name="adress" id="adress" value="Адреса">
+                    <input type="text" class="form-control" name="parol" id="parol" value="Пароль">
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <div class="col-6 padding-block">
+                 <button type="button" class="btn btn-primary" id="reg-confirm-button">Зареєструватися</button> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
 
     <!--OK-->
       <div class="modal fade" id="zakazOK" tabindex="-1" role="dialog" aria-labelledby="deleteChatLabel" aria-hidden="true">
@@ -91,6 +123,30 @@
         </div>
       </div>
 
+      <!--OK registration-->
+      <div class="modal fade" id="regOK" tabindex="-1" role="dialog" aria-labelledby="deleteChatLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title text-primary" id="deleteChatLabel"><strong>Ви зареєструвалися</strong></h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body popup-input-padding">
+              <form>
+                <div class="form-group">      
+                  <p>Спасибо, что зарегистрировались</p>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" data-dismiss="modal" class="btn btn-outline-primary btn-block regButton">Вийти</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
     <!--Error-->
       <div class="modal fade" id="zakazErr" tabindex="-1" role="dialog" aria-labelledby="deleteChatLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -105,6 +161,31 @@
               <form>
                 <div class="form-group">      
                   <p>Перевірте написання вашого номеру студентського квиткаі</p>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" data-dismiss="modal" class="btn btn-outline-primary btn-block regButton">Вийти</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!--Error registration-->
+      <div class="modal fade" id="regErr" tabindex="-1" role="dialog" aria-labelledby="deleteChatLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title text-primary" id="deleteChatLabel"><strong>Помилка при реєстрації</strong></h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body popup-input-padding">
+              <form>
+                <div class="form-group">      
+                  <p>Перевірте написання ваших даних</p>
                 </div>
               </form>
             </div>

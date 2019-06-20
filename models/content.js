@@ -27,7 +27,9 @@ const studentSchema = new Schema({
     number: { type: String, required: true},
     fio: { type: String, required: true},
     email: { type: String, required: true},
-    phone: { type: String, required: true}
+    phone: { type: String, required: true},
+    group: { type: String, required: true},
+    password: { type: String, required: true}
     },
     {versionKey: false}
 );

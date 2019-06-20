@@ -317,6 +317,18 @@ app.get("/about", function(req, res) {
   res.render("partials/about.hbs");
 })
 
+app.get("/ganre-busines", function(req, res) {
+  Content.Book.find({genre: "bisness"}, function(err, books) {
+    if (err) {
+      console.log(err)
+    } else {
+      res.render("partials/catalog.hbs", {
+        books: books
+      })
+    }
+  })
+})
+
 app.get("/new", function(req, res) {
   const author = new Content.Author({
     _id: new mongoose.Types.ObjectId(),
@@ -347,7 +359,7 @@ app.get("/new", function(req, res) {
 })
 
 app.post("/order", function(req, res) {
-  Content.Student.findOne({number: req.body.number}, function(err, student) {
+  Content.Student.findOne({pib: req.body.pib, password: req.body.password}, function(err, student) {
     if (err) {
       console.log(err);
     } else if (student) {
@@ -388,6 +400,24 @@ app.post("/order", function(req, res) {
       res.send(false);
     }
   })
+})
+
+app.post("/reg", function(req, res) {
+  let student = new Content.Student({
+    fio: req.body.fio,
+    number: req.body.number,
+    email: req.body.email,
+    phone: req.body.phone,
+    group: req.body.group,
+    password: req.body.password
+  })
+  student.save().then(function(result) {
+    if (result) {
+      res.send(true);
+    } else {
+      res.send(false);
+    }
+  });
 })
 
 app.get(/.*/, function(req, res) {
