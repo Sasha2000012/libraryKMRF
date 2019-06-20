@@ -106,7 +106,6 @@ app.get("/catalog-title-up", function(req, res) {
     }
   })
 })
-
 app.get("/catalog-title-down", function(req, res) {
   Content.Book.find({}, function(err, result) {
     if (err) {
@@ -115,6 +114,131 @@ app.get("/catalog-title-down", function(req, res) {
       result.sort(function(a, b) {
         let nameA = a.title.toLowerCase();
         let nameB = b.title.toLowerCase();
+
+        if (nameA > nameB) {
+          return -1;
+        } else if (nameA < nameB) {
+          return 1;
+        } else {
+          return 0;
+        }
+      })
+      res.render("partials/catalog.hbs", {
+        books: result
+      })
+    }
+  })
+})
+app.get("/catalog-genre-up", function(req, res) {
+  Content.Book.find({}, function(err, result) {
+    if (err) {
+      console.log(err);
+    } else {
+      result.sort(function(a, b) {
+        let nameA = a.genre.toLowerCase();
+        let nameB = b.genre.toLowerCase();
+
+        if (nameA < nameB) {
+          return -1;
+        } else if (nameA > nameB) {
+          return 1;
+        } else {
+          return 0;
+        }
+      })
+      res.render("partials/catalog.hbs", {
+        books: result
+      })
+    }
+  })
+})
+
+app.get("/catalog-genre-down", function(req, res) {
+  Content.Book.find({}, function(err, result) {
+    if (err) {
+      console.log(err);
+    } else {
+      result.sort(function(a, b) {
+        let nameA = a.genre.toLowerCase();
+        let nameB = b.genre.toLowerCase();
+
+        if (nameA > nameB) {
+          return -1;
+        } else if (nameA < nameB) {
+          return 1;
+        } else {
+          return 0;
+        }
+      })
+      res.render("partials/catalog.hbs", {
+        books: result
+      })
+    }
+  })
+})
+
+app.get("/catalog-date-down", function(req, res) {
+  Content.Book.find({}, function(err, result) {
+    if (err) {
+      console.log(err);
+    } else {
+      result.sort(function(a, b) {
+        
+
+        let dateA = new Date(a.date);
+        let dateB = new Date(b.date);
+
+        if (dateA > dateB) {
+          return -1;
+        } else if (dateA < dateB) {
+          return 1;
+        } else {
+          return 0;
+        }
+      })
+      res.render("partials/catalog.hbs", {
+        books: result
+      })
+    }
+  })
+})
+
+app.get("/catalog-date-up", function(req, res) {
+  Content.Book.find({}, function(err, result) {
+    if (err) {
+      console.log(err);
+    } else {
+      result.sort(function(a, b) {
+        
+
+        let dateA = new Date(a.date);
+        let dateB = new Date(b.date);
+
+        if (dateA < dateB) {
+          return -1;
+        } else if (dateA > dateB) {
+          return 1;
+        } else {
+          return 0;
+        }
+      })
+      res.render("partials/catalog.hbs", {
+        books: result
+      })
+    }
+  })
+})
+
+app.get("/catalog-avtor-down", function(req, res) {
+  Content.Book.find({})
+  .populate("authorID")
+  .exec(function(err, result) {
+    if (err) {
+      console.log(err);
+    } else {
+      result.sort(function(a, b) {
+        let nameA = a.authorID.name.toLowerCase();
+        let nameB = b.authorID.name.toLowerCase();
         
         if (nameA > nameB) {
           return -1;
@@ -130,6 +254,34 @@ app.get("/catalog-title-down", function(req, res) {
     }
   })
 })
+  app.get("/catalog-avtor-up", function(req, res) {
+    Content.Book.find({})
+    .populate("authorID")
+    .exec(function(err, result) {
+      if (err) {
+        console.log(err);
+      } else {
+        result.sort(function(a, b) {
+          let nameA = a.authorID.name.toLowerCase();
+          let nameB = b.authorID.name.toLowerCase();
+          
+          if (nameA < nameB) {
+            return -1;
+          } else if (nameA > nameB) {
+            return 1;
+          } else {
+            return 0;
+          }
+        })
+        res.render("partials/catalog.hbs", {
+          books: result
+        })
+      }
+    })
+  })
+
+  
+
 
 app.get("/find", function(req, res) {
   
@@ -243,10 +395,11 @@ app.get(/.*/, function(req, res) {
     if (err) {
       console.log(err);
     } else {
+     
       res.render("partials/main.hbs", {
-        book_1: result[0],
-        book_2: result[1],
-        book_3: result[2],
+        book_1: result[result.length-1],
+        book_2: result[result.length-2],
+        book_3: result[result.length-3],
         books: result
       })
     }

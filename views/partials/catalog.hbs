@@ -3,8 +3,20 @@
     
     <form action="find">
         <div class="row justify-content-center">
-            <a href="/catalog-title-up">Название(возрастание)</a>
-            <a href="/catalog-title-down">Название(убывание)</a>
+             <div class="col-lg-3 col-md-6 col-sm-12">
+            <select class="form-control" id="catalog-select-sort">
+                <option value="none">сортування</option>
+                <option value="catalog-title-up"><a href="/catalog-title-up" id="catalog-title-up">Название(возрастание)</a></option>
+                <option value="catalog-title-down"><a href="/catalog-title-down" id="catalog-title-down">Название(убывание)</a></option>
+                <option value="catalog-avtor-up"><a href="/catalog-avtor-up" id="catalog-avtor-up">Автор(возрастание)</a></option>
+                <option value="catalog-avtor-down"><a href="/catalog-avtor-down"id="catalog-avtor-down">Автор(убывание)</a></option>
+                <option value="catalog-genre-up"><a href="/catalog-genre-up"id="catalog-genre-up">Жанр(возрастание)</a></option>
+                <option value="catalog-genre-down"><a href="/catalog-genre-down"id="catalog-genre-down">Жанр(убывание)</a></option>
+                <option value="catalog-date-up"><a href="/catalog-date-up"id="catalog-date-up">Дата(возрастание)</a></option>
+                <option value="catalog-date-down"><a href="/catalog-date-down"id="catalog-date-down">Дата(убывание)</a></option>
+            </select>
+            </div>
+         
             <form action="find" method="GET">
                 <div class="input-group col-3">
                     <input type="text" class="form-control" name="text" id="keyText" value="">

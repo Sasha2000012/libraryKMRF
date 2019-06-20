@@ -41,5 +41,16 @@
     })
   })
 
+  $("#catalog-select-sort").change(function()
+  {
+     
+      console.log(2);
+      if($("#catalog-select-sort").val()=="none"){
+        $("#catalog-button").click();
+      }else {
+        window.location.href="/"+$("#catalog-select-sort").val();
+      }
+    
+  })
   
 })(jQuery); // End of use strict

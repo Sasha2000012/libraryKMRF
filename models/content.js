@@ -8,7 +8,8 @@ const bookSchema = new Schema({
     publish: { type: String, required: true },
     description: { type: String, required: true },
     notStock: { type: Boolean, default: false},
-    authorID: { type: Schema.Types.ObjectId, ref: "Author" }
+    authorID: { type: Schema.Types.ObjectId, ref: "Author" },
+    date: { type: Date, required: false, default: new Date() }
     },
     {versionKey: false}
 );
