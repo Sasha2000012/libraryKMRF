@@ -1,16 +1,16 @@
 ﻿
 <section id="book">
-	<div class="row  main-row-padding-leftrightt">                  
+	<div class="row  main-row-padding-leftrightt ">                  
         <div class="col-lg-3 col-md-4 col-sm-6">
-            <a href="/authors" >Назад</a>
+            <a class="colortexttt" href="/authors" >Назад</a>
 			<img class=" img-fluid" src="../picture/author/{{author._id}}.jpg">
         </div>
         <div class="col-lg-9 col-md-8 col-sm-6">
 			<br>
-			<h1 class = "shrifttext colortextbook">
+			<h1 class = "opusbookShrift colortexttt">
 				<p>{{author.name}}<p>
 			</h1>
-			<ul class = "colortextbook">
+			<ul class = "shrifttext colortexttt">
 				<li>Дата народження: {{author.birthday}}</li>
 				<li>Країна: {{author.country}}</li>
 			</ul>
@@ -18,11 +18,15 @@
 	</div>
 	<div class="row main-row-padding-leftrightt">
         <div class="col-12  colortextbook ">
-            <h2 class = "shrifttext">Біографія {{author.name}} </h2>
-            <p class="opusbookShrift">{{author.description}}</p>
+            <h2 class = "opusbookShrift colortexttt">Біографія {{author.name}} </h2>
+            <p class="shrifttext colortexttt">{{author.description}}</p>
         </div>
       </div>
 	  <form action="post">
+          <div class="container text-center ">        
+                     <div class="col-12 colortexttt opusbookShrift">                                      
+                        <h3>Книги автора - {{author.name}}</h3>                         
+                    </div>  
         <div class=" row justify-content-center main-row-padding main-row-padding-leftrightt">
             {{#each books}}
                 <div class="col-lg-3 col-md-6 col-sm-12 marginntop holder">

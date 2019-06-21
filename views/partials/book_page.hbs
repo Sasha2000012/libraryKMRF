@@ -7,14 +7,14 @@
         </div>
         <div class="col-lg-9 col-md-8 col-sm-6">
           <br>
-			<h1 class = "shrifttext colortextbook">
+			<h1 class = "opusbookShrift colortexttt">
       <input type="hidden" id="book-id" value="{{book._id}}">
 			<span id="book-title">{{book.title}}</span>
 				<p>{{book.authorID.name}}<p>
 			</h1>
-			<ul class = "colortextbook">
+			<ul class = "colortexttt">
 				<li>Назва: {{book.title}}</li>
-				<li>Автор: <a href="/author/{{book.authorID._id}}" class="sulka">{{book.authorID.name}}</a></li>
+				<li>Автор: <a href="/author/{{book.authorID._id}}" class="sulka colortexttt">{{book.authorID.name}}</a></li>
 				<li>Рік: {{book.year}}</li>
 				<li>Видавництво: {{book.publish}}</li>
 				<li>Жанр: {{book.genre}}</li>
@@ -28,9 +28,9 @@
 		</div>
 	</div>
 	<div class="row main-row-padding-leftrightt">
-        <div class="col-12 colortextbook ">
-            <h2 class = "shrifttext">О книзі «{{book.title}}» </h2>
-            <p class="opusbookShrift">{{book.description}}</p>
+        <div class="col-12 colortexttt ">
+            <h2 class = "opusbookShrift">О книзі «{{book.title}}» </h2>
+            <p class="shrifttext">{{book.description}}</p>
         </div>
     </div>
       
@@ -47,12 +47,16 @@
             </div>
             <div class="modal-body popup-input-padding">
               <form>
-                <div class="form-group">      
+               
+                <div class="form-group"> 
+                      
                   <input type="text" class="form-control" name="PIB" id="PIB-auth" value="ПІБ">
-                     <input type="text" class="form-control" name="parol" id="parol-auth" value="Пароль">
+                  <br>
+                  <input type="text" class="form-control" name="parol" id="parol-auth" value="Пароль">
                 </div>
               </form>
             </div>
+
             <div class="modal-footer">
               <div class="col-6 padding-block">
                  <button type="submit" class="btn btn-primary" id="reg-button">Зареєструватися</button> 
@@ -80,17 +84,23 @@
               <form>
                 <div class="form-group">      
                   <input type="text" class="form-control" name="PIB" id="PIB" value="ПІБ">
-                    <input type="text" class="form-control" name="Number-stud" id="Number-stud" value="">
+                  <br>
+                    <input type="text" class="form-control" name="Number-stud" id="Number-stud" value="Номер студентського">
+                    <br>
                     <input type="text" class="form-control" name="Group" id="Group" value="Група">
+                    <br>
                     <input type="text" class="form-control" name="Email" id="Email" value="Електрона адреса">
-                     <input type="text" class="form-control" name="number-phone" id="Number-phone" value="">
+                    <br>
+                     <input type="text" class="form-control" name="number-phone" id="Number-phone" value="Номер телефону">
+                     <br>
                     <input type="text" class="form-control" name="adress" id="adress" value="Адреса">
+                    <br>
                     <input type="text" class="form-control" name="parol" id="parol" value="Пароль">
                 </div>
               </form>
             </div>
             <div class="modal-footer">
-              <div class="col-6 padding-block">
+              <div class="col-12 padding-block">
                  <button type="button" class="btn btn-primary" id="reg-confirm-button">Зареєструватися</button> 
               </div>
             </div>
@@ -160,7 +170,7 @@
             <div class="modal-body popup-input-padding">
               <form>
                 <div class="form-group">      
-                  <p>Перевірте написання вашого номеру студентського квиткаі</p>
+                  <p>Перевірте заповнення полів</p>
                 </div>
               </form>
             </div>

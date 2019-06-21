@@ -21,7 +21,13 @@ section {
 .left{
 	padding-left: 100px;
 }
-
+.colortexttt{
+	color: #faf9d5  ;
+	
+}
+.toptop{
+	min-height: 450px; 
+}
 .main-row-padding-leftrightt{
 	padding-left: 15%;
 	padding-right: 15%;
@@ -60,17 +66,25 @@ display:block;
 }
 
 .shrifttext{
-	font-family:'Times New Roman', Times, serif;
-	font-weight:bold;
-	font-size:30px;
+	font-family:'Vardana', sans-serif;
+	font-weight:  bold;
+	font-size:20px;
+}
+.colorfooter{
+	background-color:  rgb(54, 28, 10, 0.9);
+	
+}
+.center{
+	text-align: center;
 }
 .colortextbook
 {
 	color:  #0000CD;
 }
 .opusbookShrift{
-	font-family:'Times New Roman', Times, serif;
-	font-size:20px;
+	font-family:'Vardana', sans-serif;
+	font-weight:  bold;
+	font-size:30px;
 	
 }
 

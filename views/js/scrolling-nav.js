@@ -46,6 +46,7 @@
       url: "/order",
       type: "POST",
       data: {
+        bookID: $("#book-id").val(),
         pib: $("#PIB-auth").val(),
         password: $("#parol-auth").val()
       },

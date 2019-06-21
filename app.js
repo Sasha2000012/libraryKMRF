@@ -83,6 +83,10 @@ app.get("/catalog", function(req, res) {
   })
 })
 
+app.get("/ganre",function(req,res){
+  res.render("partials/Ganre.hbs");
+})
+
 app.get("/catalog-title-up", function(req, res) {
   Content.Book.find({}, function(err, result) {
     if (err) {
@@ -318,12 +322,91 @@ app.get("/about", function(req, res) {
 })
 
 app.get("/ganre-busines", function(req, res) {
-  Content.Book.find({genre: "bisness"}, function(err, books) {
+  Content.Book.find({genre: "Бізнес"}, function(err, books) {
     if (err) {
       console.log(err)
     } else {
-      res.render("partials/catalog.hbs", {
-        books: books
+      res.render("partials/ganre-str.hbs", {
+        books: books,
+        genre: "Бізнес"
+      })
+    }
+  })
+})
+
+app.get("/ganre-detective", function(req, res) {
+  Content.Book.find({genre: "Детектив"}, function(err, books) {
+    if (err) {
+      console.log(err)
+    } else {
+      res.render("partials/ganre-str.hbs", {
+        books: books,
+        genre: "Детектив"
+      })
+    }
+  })
+})
+
+app.get("/ganre-nauka", function(req, res) {
+  Content.Book.find({genre: "Наука"}, function(err, books) {
+    if (err) {
+      console.log(err)
+    } else {
+      res.render("partials/ganre-str.hbs", {
+        books: books,
+        genre: "Наука"
+      })
+    }
+  })
+})
+
+app.get("/ganre-prigodu", function(req, res) {
+  Content.Book.find({genre: "Пригоди"}, function(err, books) {
+    if (err) {
+      console.log(err)
+    } else {
+      res.render("partials/ganre-str.hbs", {
+        books: books,
+        genre: "Пригоди"
+      })
+    }
+  })
+})
+
+app.get("/ganre-psuhologia", function(req, res) {
+  Content.Book.find({genre: "Психологія"}, function(err, books) {
+    if (err) {
+      console.log(err)
+    } else {
+      res.render("partials/ganre-str.hbs", {
+        books: books,
+        genre: "Психологія"
+      })
+    }
+  })
+})
+
+app.get("/ganre-roman", function(req, res) {
+  Content.Book.find({genre: "Роман"}, function(err, books) {
+    if (err) {
+      console.log(err)
+    } else {
+      res.render("partials/ganre-str.hbs", {
+        books: books,
+        genre: "Роман"
+      })
+    }
+  })
+})
+
+app.get("/ganre-fentezi", function(req, res) {
+  Content.Book.find({genre: "Фентезі"}, function(err, books) {
+    if (err) {
+      console.log(err)
+    } else {
+      res.render("partials/ganre-str.hbs", {
+        books: books,
+        genre: "Фентезі"
       })
     }
   })
@@ -359,11 +442,14 @@ app.get("/new", function(req, res) {
 })
 
 app.post("/order", function(req, res) {
-  Content.Student.findOne({pib: req.body.pib, password: req.body.password}, function(err, student) {
+  console.log(req.body);
+  Content.Student.findOne({fio: req.body.pib, password: req.body.password}, function(err, student) {
+    console.log(student);
     if (err) {
       console.log(err);
     } else if (student) {
       Content.Book.findById(req.body.bookID, function(err, book) {
+       console.log(book);
         if (err) {
           console.log(err);
         } else if(!book.notStock) {
