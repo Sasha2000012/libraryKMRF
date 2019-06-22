@@ -5,6 +5,8 @@ const hbs = require("hbs");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const Content = require("./models/content");
+const multer = require("multer");
+const fs = require("fs");
 
 const nodemailer = require("nodemailer");
 
@@ -21,6 +23,7 @@ var transporter = nodemailer.createTransport(smtpConfig);
 
 const app = express();
 
+app.use(multer({dest:"./views/picture/book"}).single("filedata"));
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
@@ -41,6 +44,46 @@ app.use(cookieParser());
 hbs.registerPartials(__dirname + "/views/partials");
 app.use(express.static(__dirname + "/views"));
 
+
+app.post("/addBook", function(req, res) {
+  console.log(req.body);
+  let book = new Content.Book({
+    title: req.body.title,
+    year: req.body.year,
+    genre: req.body.genre,
+    publish: req.body.publish,
+    description: req.body.description,
+    authorID: req.body.author
+  });
+  
+  book.save().then(function(doc) {
+    let fileName = req.file.filename;
+    console.log(fileName);
+    fs.rename(`./views/picture/book/${fileName}`, `./views/picture/book/${doc._id}.jpg`, function(err) {
+      if ( err ) console.log('ERROR: ' + err);
+  })
+
+  //res.redirect("/admin");
+  Content.Author.find({}, function(err, authors) {
+    Content.Book.find({}).populate("authorID").exec(function(err, books) {
+      Content.Order.find({}).populate("bookID").exec(function(err, orders) {
+        res.render("partials/admin-page.hbs", {
+          authors: authors,
+          books: books,
+          orders: orders
+        });
+      })
+    })
+  })
+  })
+})
+
+app.post("/deleteBook", function(req, res) {
+  Content.Book.deleteOne({_id: req.body.id}, function(err) {
+    console.log(err);
+  });
+  res.send(true);
+})
 
 app.get('/book/:id', function(req, res) {
   Content.Book.findById(req.params.id)
@@ -284,7 +327,42 @@ app.get("/catalog-avtor-down", function(req, res) {
     })
   })
 
+  app.post("/admin", function(req, res) {
+    Content.Admin.findOne({name: req.body.name, password: req.body.password}, function(err, admin) {
+      if (err) {
+        console.log(err);
+      } else if (admin) {
+        Content.Author.find({}, function(err, authors) {
+          Content.Book.find({}).populate("authorID").exec(function(err, books) {
+            Content.Order.find({}).populate("bookID").exec(function(err, orders) {
+              res.render("partials/admin-page.hbs", {
+                authors: authors,
+                books: books,
+                orders: orders
+              });
+            })
+          })
+        })
+      } else {
+        res.render("partials/admin-login.hbs");
+      }
+    })
+  })
+
   
+
+  app.get("/admin", function(req, res) {
+    res.render("partials/admin-login.hbs");
+  })
+
+  app.get("/newAdmin", function(req, res) {
+    let admin = new Content.Admin({
+      name: "Sasha",
+      password: "123"
+    })
+    admin.save();
+    res.send(true);
+  })
 
 
 app.get("/find", function(req, res) {

@@ -1,0 +1,83 @@
+﻿<section id="about">
+    <div class="container ">
+          <table class="table table-striped table-dark">
+            <thead>
+                <tr>
+                <th scope="col">Назва</th>
+                <th>Рік</th>
+                <th>Видавництво</th>
+                <th>Автор</th>
+                <th>Є в наявності</th>
+                <th></th>
+                </tr>
+            </thead>
+            <tbody id="book-block-admin">
+                {{#each books}}
+                    <tr class="delete-block" id="{{this._id}}">
+                        <th scope="row">{{this.title}}</th>
+                        <td>{{this.year}}</td>
+                        <td>{{this.publish}}</td>
+                        <td>{{this.authorID.name}}</td>
+                        <td>{{this.notStock}}</td>
+                        <td><input type="button" class="btn btn-block btn-light delete-button" value="Видалити" id="{{this._id}}"></td>
+                    </tr>
+                {{/each}}
+            </tbody>
+            </table>
+            <br>
+            <table class="table table-striped table-dark">
+            <thead>
+                <tr>
+                    <th scope="col">Назва</th>
+                    <th>Номер студента</th>
+                    <th>Статус</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each orders}}
+                    <tr>
+                        <th scope="row">{{this.bookID.title}}</th>
+                        <td>{{this.number}}</td>
+                        <td>{{this.status}}</td>
+                    </tr>
+                {{/each}}
+            </tbody>
+            </table>
+
+        <div class="row">
+        <div class="col-lg-4 pt-5 mx-auto colortexttt shrifttext">
+         
+          <form action="/addBook" enctype="multipart/form-data" method="POST">
+                <div class="input-group">
+                    <input type="text" class="form-control" name="title" id="" value="" placeholder="Назва" required>
+                </div>
+                <div class="input-group">
+                    <input type="file" class="form-control mt-1" name="filedata" id="" value="" placeholder="Обкладинка" required>
+                </div>
+                <select class="form-control mt-1" id="author-select-sort" name="author">
+                    {{#each authors}}
+                        <option value="{{this._id}}">{{this.name}}</option>
+                    {{/each}}
+                </select>
+                <div class="input-group">
+                    <input type="text" class="form-control mt-1" name="year" id="" value="" placeholder="Рік" required>
+                </div>
+                <div class="input-group">
+                    <input type="text" class="form-control mt-1" name="genre" id="" value="" placeholder="Жанр" required>
+                </div>
+                <div class="input-group">
+                    <input type="text" class="form-control mt-1" name="publish" id="" value="" placeholder="Видавництво" required>
+                </div>
+                <div class="input-group">
+                    <textarea class="form-control mt-1" name="description" id="" cols="10" rows="5">Опис</textarea>
+                </div>
+                <div class="input-group">
+                    <button type="submit" class="btn btn-block btn-primary mt-1" id="add-book-button">Додати</button> 
+                </div>
+            </form>
+          </div>
+          </div>
+
+      </div>
+    </div>
+  </section>

@@ -36,10 +36,17 @@ const studentSchema = new Schema({
 
 const orderSchema = new Schema({
     number: { type: String, required: true},
-    bookID: { type: Schema.Types.ObjectId, required: true},
+    bookID: { type: Schema.Types.ObjectId, required: true, ref: "Book"},
     status: { type: String, default: "ordered"},
     receiveDate: { type: Date, required: false},
     passDate: { type: Date, required: false} 
+    },
+    {versionKey: false}
+)
+
+const adminSchema = new Schema({
+    name: { type: String, required: true},
+    password: { type: String, required: true}
     },
     {versionKey: false}
 )
@@ -48,3 +55,4 @@ module.exports.Book = mongoose.model("Book", bookSchema);
 module.exports.Author = mongoose.model("Author", authorSchema);
 module.exports.Student = mongoose.model("Student", studentSchema);
 module.exports.Order = mongoose.model("Order", orderSchema);
+module.exports.Admin = mongoose.model("Admin", adminSchema);

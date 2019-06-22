@@ -41,6 +41,20 @@
     })
   })
 
+  $(".delete-button").click(function(e) {
+    let id = $(this).attr('id');
+    $.ajax({
+      url: "/deleteBook",
+      type: "POST",
+      data: {
+        id: id
+      }, 
+      success: function(result) {
+        $(`tr#${id}`).remove();
+      }
+    })
+  })
+
   $("#auth-button").click(function(e) {
     $.ajax({
       url: "/order",
