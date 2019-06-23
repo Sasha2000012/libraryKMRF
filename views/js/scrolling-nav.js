@@ -61,7 +61,7 @@
       type: "POST",
       data: {
         bookID: $("#book-id").val(),
-        pib: $("#PIB-auth").val(),
+        number: $("#PIB-auth").val(),
         password: $("#parol-auth").val()
       },
       success: function(result) {

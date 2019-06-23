@@ -520,31 +520,34 @@ app.get("/new", function(req, res) {
 })
 
 app.post("/order", function(req, res) {
-  console.log(req.body);
-  Content.Student.findOne({fio: req.body.pib, password: req.body.password}, function(err, student) {
-    console.log(student);
+  //console.log(req.body);
+  Content.Student.findOne({number: req.body.number, password: req.body.password}, function(err, student) {
+    //console.log(student);
     if (err) {
       console.log(err);
     } else if (student) {
       Content.Book.findById(req.body.bookID, function(err, book) {
-       console.log(book);
+       //console.log(book);
         if (err) {
           console.log(err);
         } else if(!book.notStock) {
-          const order = new Content.Order({
+          let order = new Content.Order({
             number: req.body.number,
             bookID: req.body.bookID
           })
-          order.save();
+          order.save().then(function(err) {
+            console.log("it was saved!!!");
+            console.log(err);
+          });
           Content.Book.updateOne({_id: req.body.bookID}, {$set: {"notStock" : true}}).exec(function(err, updatedBook) {
-            console.log(updatedBook);
+            //console.log(updatedBook);
           })
           const mailOptions = {
             from: 'library.kmrf@gmail.com',
             to: student.email,
             subject: 'Замовлення книги',
             html: "<h2>Замовлення книги</h2><hr><h3>Книга " 
-            + req.body.title + " була успішно замовлена<h3>Книгу ви  можете отримати в бібліотеці коледжу</h3>"
+            + book.title + " була успішно замовлена<h3>Книгу ви  можете отримати в бібліотеці коледжу</h3>"
             + "<h3>Для отримання книги вам буде необхідно показати свій студентський квиток</h3><h3>Години роботи ви можете переглянути на сайті</h3>"
           }
     
